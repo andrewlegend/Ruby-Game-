@@ -40,16 +40,19 @@ end
 class CentralCorridor < Scene
 
   def enter()
+    puts "Welcome to game"
+    puts "Possible responses are in * *"
+    puts "*Like This*"
+    puts "Please answer in lower case"
+    puts " _________________________________________________"
     puts "You are sent to prison for a crime you are not responsible for..."
     puts "They handcuff you and you are sent to a cold room"
-    puts "You feel so misunderstood and mistaken"
-    puts "You are asking why this is happening to you"
     puts "You need to make a decision"
     puts "Do you choose ..."
-    puts "A. Try to break out of prison"
-    puts "B. Talk with the lawyers"
-    puts "C. Befriend your inmate as they give you valuable advice to survive prison"
-    puts "D. Try to contact one of your friends to see what he can do "
+    puts "A. Try to *break out* of prison"
+    puts "B. Talk with the *lawyers*"
+    puts "C. Befriend your *inmate* as they give you valuable advice to survive prison"
+    puts ""
     puts "\n"
     puts "Be careful with your choice ..."
     puts " It could mean the difference between freedom and imprisonment"
@@ -60,45 +63,36 @@ class CentralCorridor < Scene
     action = $stdin.gets.chomp
 
     if action == "break out"
-      puts "It was a hard time to break out"
+      puts "It was difficult to break out"
       puts "But you were patient and waited for your opportunity"
       puts "When that opportunity arrived you seized the day"
       puts "But alas you are one man running away from an army"
       puts "they eventually catch up to you"
       puts "You get caught and sent back to prison!"
+      puts "Game over!"
       return 'Death'
+      
+    elsif action == "lawyers"
+      puts "You chose to consult with your lawyers"
+      puts "Their fee is $10,000,000 "
+      puts "Do you choose to *pay* or *not pay*"
+      return 'lawyers'
 
     elsif action == "inmate"
       puts "The inmate you befriend is nice"
       puts "You learn tricks to survive prison"
       puts "You are Oliver Twist to the artful dodger"
-      puts "The tricks you learned weren't enough though ..."
-      puts "One of the enemies you made eventually beats you up"
-      puts "You remain in prison"
+      puts "He has a task for you"
+      puts "Do you choose *yes* or *no*"
       return 'death'
-      
-    elsif action == "friend"
-      puts " Your friend comforts you as you face prison"
-      puts " Fortunately for you he has thought of a way"
-      puts " You do not like it though"
-      puts " Try to wait until the revocation committee"
-      puts " Then try to convince them you are innocent"
-      puts " The committee fails and you remain there for four years!"
-
-    elsif action == "lawyers"
-      puts "Lucky for you they have a plan ..."
-      puts "The lawyers you hire have a way for you to plead innocent"
-      puts "They go before the judge and the court case will resume "
-      puts "They have 3 witnesses for you to choose"
-      puts "The murder victim's wife, their son, or their neighbor"
-      puts "One of these people might have a way for you to be set free"
-      return 'court'
     else
       puts "DOES NOT COMPUTE!"
       return 'court'
     end
   end
 end
+
+
 
 class Court < Scene
 
