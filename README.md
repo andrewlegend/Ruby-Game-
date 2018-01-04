@@ -1,2 +1,2 @@
 # Ruby-Game-
-read me 
+This is a simple game based on the school
